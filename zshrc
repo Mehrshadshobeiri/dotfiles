@@ -52,7 +52,7 @@ type -a nvm > /dev/null && load-nvmrc
 # Rails and Ruby uses the local `bin` folder to store binstubs.
 # So instead of running `bin/rails` like the doc says, just run `rails`
 # Same for `./node_modules/.bin` and nodejs
-export PATH="./bin:./node_modules/.bin:${PATH}:/usr/local/sbin:/media/mehrshad/Data/.pyenv/bin"
+export PATH="./bin:./node_modules/.bin:${PATH}:/usr/local/sbin:/home/datapoint/.pyenv/bin"
 
 # Store your own aliases in the ~/.aliases file and load the here.
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
@@ -66,3 +66,8 @@ export EDITOR=code
 
 # Set ipdb as the default Python debugger
 export PYTHONBREAKPOINT=ipdb.set_trace
+
+export PYENV_ROOT="/home/datapoint/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(direnv hook zsh)"
